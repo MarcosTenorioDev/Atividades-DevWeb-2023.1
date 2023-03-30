@@ -6,15 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>      
 
-    <h1>Dado</h1>
+    <div id="card">
+        <div class="cardImageBox">
+            <img src="dado.png" alt="" class="cardImage">
+        </div>
+        <h1 class="title">Dado da sorte</h1>
     
-    <button id="button">Rodar Dado</button>
-    <button id="clearBtn">Limpar</button>
+        <button id="button">Rodar Dado</button>
+        <button id="clearBtn">Limpar Resultados</button>
+        
+    </div>
 
-    <h2 id="result">O seu resultado será inserido em seguida...</h2>
+    <div id="resultBox">
+        <h2 id="result">O seu resultado será inserido em seguida...<br><br></h2>
+    </div>
     
 </body>
 </html>
