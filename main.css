@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2? family= Roboto:wght@100;300;500;700;900 & family= Syncopate:wght@400;700 & family= Ubuntu: wght@300;400;500;700 & display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background: linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 0px;
+    gap: 100px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#title{
+    font-size: 40px;
+}
+
+#container ul{
+    display: flex;
+    justify-content: space-around;
+    width: 1280px;
+}
+
+#container li{
+    list-style: none;
+}
+
+#container .button{
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 15px;
+    background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+    border: 2px solid black;
+}
+
+#container .button:hover{
+    padding: 23px;
+    background: linear-gradient(90deg, #fdfffdd5 0%, #d9e7ffda 100%);
+    transition: 1s;
+}
+
+.fixarRodape{
+    bottom: 0;
+    position: fixed;
+    width: 90%;
+    text-align: center;
+    color: black;
+    font-size: 25px;
+    padding: 20px 0px;
+    width: 100%;
+    border-top: black 2px solid;
+    
+}
+
