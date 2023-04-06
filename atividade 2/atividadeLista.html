@@ -12,47 +12,50 @@
 <body>
     <a href="../index.html"><img src="../images/whiteback.svg" alt="" class="back"></a>
 
-    <main id="container">
-        <h1 id="title">Lista de compras</h1>
-
-        <div id="content"> 
-            <div class="forms">
-                <div class="inputBox">
-                    <label for="" id="">Produto</label>
-                    <input type="text" placeholder="Ex: maçã" id="produto">
+    <div id="flex">
+        <main id="container">
+            <h1 id="title">Lista de compras</h1>
+    
+            <div id="content"> 
+                <div class="forms">
+                    <div class="inputBox">
+                        <label for="" id="">Produto</label>
+                        <input type="text" placeholder="Ex: maçã" id="produto">
+                    </div>
+    
+                    <div class="inputBox">
+                        <label for="">Quantidade</label>
+                        <input type="number" placeholder="Ex: 2 unidades" id="quantidade">
+                    </div>
+    
+                    <div class="inputBox">
+                        <label for="">Preço</label>
+                        <input type="number" placeholder="Ex: 2.5" id="preco">
+                    </div>
                 </div>
-
-                <div class="inputBox">
-                    <label for="">Quantidade</label>
-                    <input type="text" placeholder="Ex: 2 unidades" id="quantidade">
-                </div>
-
-                <div class="inputBox">
-                    <label for="">Preço</label>
-                    <input type="text" placeholder="Ex: 2.5" id="preco">
-                </div>
+    
+                <button id="cardButton">Enviar</button>
             </div>
-
-            <button id="cardButton">Enviar</button>
+    
+        </main>
+    
+        <div id="tableContainer">
+           <table id="table" border="3">
+                <thead class="tableHeader">
+                    <tr class="tableRow">
+                        <th class="tableColumn">Produto</th>
+                        <th class="tableColumn">Quantidade</th>
+                        <th class="tableColumn">preço</th>
+                    </tr>
+                </thead>
+    
+                <tbody id="tbody">
+    
+                </tbody>
+           </table>
         </div>
-
-    </main>
-
-    <div id="tableContainer">
-       <table id="table" border="3">
-            <thead class="tableHeader">
-                <tr class="tableRow">
-                    <th class="tableColumn">Produto</th>
-                    <th class="tableColumn">Quantidade</th>
-                    <th class="tableColumn">preço</th>
-                </tr>
-            </thead>
-
-            <tbody id="tbody">
-
-            </tbody>
-       </table>
     </div>
+    
     
 
 </body>
