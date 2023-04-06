@@ -1,4 +1,5 @@
-let button = document.getElementById('cardButton')
+let button = document.getElementById('submit')
+let clearbtn = document.getElementById('clear')
 let result = document.getElementById('result')
 let tableHeader = document.querySelector('.tableHeader')
 let product = document.getElementById('produto')
@@ -64,5 +65,14 @@ const createListItem = () =>{
     tbody.appendChild(row);
   }
 
+}
+
+const clearTable = () =>{
+
+}
+
+clearbtn.onclick = () => {
+  arrayCompras = [];
+  tbody.innerHTML = ''
 }
       

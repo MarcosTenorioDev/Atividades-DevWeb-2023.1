@@ -78,7 +78,7 @@ main#container{
     align-items: center;
     gap: 15px;
 }
-#cardButton{
+.cardButton{
     padding: 5% 17%;
     border-radius: 10px;
 }
