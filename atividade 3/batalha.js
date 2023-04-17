@@ -14,6 +14,8 @@ let resultDice2Score = document.getElementById('dice2Score');
 let resultDice1Score = document.getElementById('dice1Score');
 let diceImage1 = document.getElementById('diceImage1');
 let diceImage2 = document.getElementById('diceImage2');
+let reset = document.getElementById('reset');
+reset.disabled = true;
 
 //Função para obter o valor do resultado do dado 1
 dice1Row.onclick = () => {
@@ -22,6 +24,7 @@ dice1Row.onclick = () => {
     console.log('dado 1 = ' + dado1Result);
     dice2Row.disabled = false;
     dice1Row.disabled = true;
+    reset.disabled = false;
 
 }
 
@@ -125,27 +128,15 @@ const attDice2ScoreOnScreen = () => {
     resultDice2Score.innerHTML = `Pontuação: ${dado2Score}`;
 }
 
-// função para limpar a tela para reiniciar o jogo após o fim das rodadas
+// função para verificar a condição para reiniciar o jogo
 const clearScreen = () => {
     if (rodada === 11) {
-        dado1Result = 0;
-        dado2Result = 0;
-        dado1Score = 0;
-        dado2Score = 0;
-        rodada = 1;
-        dice1Row.disabled = false;
-        dice2Row.disabled = true;
-        roundStatus.innerHTML = `round: ${rodada}`;
-        diceImage1 = document.getElementById('diceImage1').src = "../images/mainImage.png";
-        diceImage2 = document.getElementById('diceImage2').src = "../images/mainImage.png";
-        addStatusOnScreen();
-        addDice1ResultOnScreen();
-
+        resetGame();
     } else {
         console.log('teste')
     }
 }
-
+// função para adicionar uma imagem de acordo com o valor do dado 1 
 const showNewImageDice1 = () => {
     switch (dado1Result) {
         case 1:
@@ -171,7 +162,7 @@ const showNewImageDice1 = () => {
             break;
     }
 }
-
+// função para adicionar uma imagem de acordo com o valor do dado 2
 const showNewImageDice2 = () => {
     switch (dado2Result) {
         case 1:
@@ -196,8 +187,27 @@ const showNewImageDice2 = () => {
             break;
     }
 }
-
+// função para zerar o resultado da jogada anterior
 const getZeroResultDice = () => {
     resultDice1.innerHTML = 0;
     resultDice2.innerHTML = 0;
+    diceImage1 = document.getElementById('diceImage1').src = "../images/mainImage.png";
+    diceImage2 = document.getElementById('diceImage2').src = "../images/mainImage.png";
 }
+// função para limpar a tela para reiniciar o jogo
+const resetGame = () =>{
+    dado1Result = 0;
+    dado2Result = 0;
+    dado1Score = 0;
+    dado2Score = 0;
+    rodada = 1;
+    dice1Row.disabled = false;
+    dice2Row.disabled = true;
+    reset.disabled = true;
+    roundStatus.innerHTML = `round: ${rodada}`;
+    diceImage1 = document.getElementById('diceImage1').src = "../images/mainImage.png";
+    diceImage2 = document.getElementById('diceImage2').src = "../images/mainImage.png";
+    addStatusOnScreen();
+    addDice1ResultOnScreen();
+}
+reset.onclick = resetGame;
