@@ -126,6 +126,8 @@ const clearScreen = () =>{
         dice1Row.disabled = false; 
         dice2Row.disabled = true;
         roundStatus.innerHTML = `round: ${rodada}`;
+        diceImage1 = document.getElementById('diceImage1').src = "../images/mainImage.png";
+        diceImage2 = document.getElementById('diceImage2').src = "../images/mainImage.png";
         addStatusOnScreen();
         addDice1ResultOnScreen();
 
