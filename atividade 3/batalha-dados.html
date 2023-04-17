@@ -8,19 +8,30 @@
     <link rel="stylesheet" href="style.css">
     <script src="batalha.js" defer></script>
 </head>
-<body>     
-        <a href="../index.html"><img src="../images/whiteback.svg" alt="" class="back"></a>
+<body>  
+        <div class="backBox">
+            <a href="../index.html"><img src="../images/whiteback.svg" alt="" class="back"></a>
+        </div>
+        
     
         <div id="content">
             <div id="card">
-                <div class="diceBox">
-                    <img src="" alt="imagem do dado">
-                    <button id="diceBtn1" disabled>Rodar dado 1</button>
+                <h1 translate="no" id="roundStatus">round: 0</h1>
+                <div id="container">
+                    <div class="diceBox">
+                        <img src="" alt="imagem do dado">
+                        <h2 id="resultDice1"></h2>
+                        <button id="diceBtn1" disabled>Rodar dado 1</button>
+                        <h3 translate="no" id="dice1Score">pontuação: </h3>
+                    </div>
+                    <div class="diceBox">
+                        <img src="" alt="imagem do dado">
+                        <h2 id="resultDice2"></h2>
+                        <button id="diceBtn2" disabled>Rodar dado 2</button>
+                        <h3 translate="no" id="dice2Score">pontuação: </h3>
+                    </div>
                 </div>
-                <div class="diceBox">
-                    <img src="" alt="imagem do dado">
-                    <button id="diceBtn2" disabled>Rodar dado 2</button>
-                </div>
+                
             
             </div>
         </div>
