@@ -12,6 +12,8 @@ let resultDice2 = document.getElementById('resultDice2');
 let roundStatus = document.getElementById('roundStatus');
 let resultDice2Score = document.getElementById('dice2Score');
 let resultDice1Score = document.getElementById('dice1Score');
+let diceImage1 = document.getElementById('diceImage1');
+let diceImage2 = document.getElementById('diceImage2');
 
 //Função para obter o valor do resultado do dado 1
 dice1Row.onclick  = () => {
@@ -96,11 +98,13 @@ const roundStatusOnScreen = () =>{
 }
 // função para mostrar o resultado do dado 2
 const addDice2ResultOnScreen = () =>{
-    resultDice2. innerHTML = dado2Result
+    resultDice2.innerHTML = dado2Result;
+    showNewImageDice2();
 }
 // função para mostrar o resultado do dado 1
 const addDice1ResultOnScreen = () =>{
-    resultDice1.innerHTML = dado1Result
+    resultDice1.innerHTML = dado1Result;
+    showNewImageDice1();
 }
 // função para mostrar o score do dado 1
 const attDice1ScoreOnScreen = () =>{
@@ -127,5 +131,56 @@ const clearScreen = () =>{
 
     }else{
         console.log('teste')
+    }
+}
+
+const showNewImageDice1 = () =>{
+    switch (dado1Result) {
+        case 1:
+            diceImage1 = document.getElementById('diceImage1').src = "../images/Dice1.png";
+            console.log('deu certo')
+            break;
+        case 2:
+            diceImage1 = document.getElementById('diceImage1').src = "../images/Dice2.png";
+            break;
+        case 3:
+            diceImage1 = document.getElementById('diceImage1').src = "../images/Dice3.png";
+            break;
+        case 4:
+            diceImage1 = document.getElementById('diceImage1').src = "../images/Dice4.png";
+            break;
+        case 5:
+            diceImage1 = document.getElementById('diceImage1').src = "../images/Dice5.png";
+            break;
+        case 6:
+            diceImage1 = document.getElementById('diceImage1').src = "../images/Dice6.png";
+            break;
+        default:
+            break;
+    }
+}
+
+const showNewImageDice2 = () =>{
+    switch (dado2Result){
+        case 1:
+            diceImage2 = document.getElementById('diceImage2').src = "../images/Dice1.png";
+            break;
+        case 2:
+            diceImage2 = document.getElementById('diceImage2').src = "../images/Dice2.png";
+            break;
+        case 3:
+            diceImage2 = document.getElementById('diceImage2').src = "../images/Dice3.png";
+            break;
+        case 4:
+            diceImage2 = document.getElementById('diceImage2').src = "../images/Dice4.png";
+            break;
+        case 5:
+            diceImage2 = document.getElementById('diceImage2').src = "../images/Dice5.png";
+            break;
+        case 6:
+            diceImage2 = document.getElementById('diceImage2').src = "../images/Dice6.png";
+            break;
+        default:
+            break;
     }
 }
