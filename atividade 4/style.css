@@ -86,10 +86,7 @@ body{
 #weather-data span{
     margin: 0.6rem;
 }
-
-#country{
-    height: 20px;
-}
+ 
 
 #description-container{
     display: flex;
@@ -120,3 +117,6 @@ body{
     }
 } 
 
+.hide{
+    opacity: 0;
+}
