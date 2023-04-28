@@ -19,6 +19,7 @@ body{
 
 #title{
     font-size: 40px;
+    text-align: center;
 }
 
 #container ul{
@@ -60,3 +61,34 @@ body{
     
 }
 
+@media (max-width: 1250px) {
+    #container ul {
+    width: 10vh;
+    height:20vh;
+    display:grid;
+    grid-template-columns: 40vh 30vh;
+    grid-column-gap: 5vh;
+    }
+    #container .button{
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        border: 2px solid red
+    }
+}
+
+@media (max-width: 750px){
+    #container ul {
+        width: 20vh;
+        height:40vh;
+        display:grid;
+        grid-template-columns: 40vh;
+    }
+
+    #container .button{
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        border: 2px solid red
+    }
+}
