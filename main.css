@@ -13,7 +13,7 @@ body{
     flex-direction: column;
     align-items: center;
     padding: 50px 0px;
-    gap: 100px;
+    gap: 10vh;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -66,8 +66,8 @@ body{
     width: 10vh;
     height:20vh;
     display:grid;
-    grid-template-columns: 40vh 30vh;
-    grid-column-gap: 5vh;
+    grid-template-columns: 20vh 30vh;
+    grid-column-gap: 3vh;
     }
     #container .button{
         padding: 20px;
@@ -89,6 +89,20 @@ body{
         padding: 20px;
         display: flex;
         justify-content: center;
-        border: 2px solid red
+        border: 2px solid red;
+    }
+
+    .fixarRodape{
+        bottom: 0;
+        position: fixed;
+        width: 90%;
+        text-align: center;
+        color: black;
+        font-size: 100%;
+        padding: 20px 0px;
+        width: 100%;
+        border-top: black 2px solid;
+
+    
     }
 }
