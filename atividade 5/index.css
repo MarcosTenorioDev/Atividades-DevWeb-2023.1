@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#content{
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 5%;
+    padding: 15px;
+}
+
+#tableContainer{
+    margin-top: 20%;
+    color: black;
+}
+#table{
+    border-collapse: collapse;
+    background: #FFFFF0;
+}
+
+#table thead{
+    background-color: rgb(117, 144, 231);
+    border-bottom: 2px solid rgb(0, 0, 0);
+
+}
+.tableColumn{
+    padding: 8px;
+    min-width: 100px;
+}
+
+#tbody{
+    background-color: #FFFFF0;
+}
+

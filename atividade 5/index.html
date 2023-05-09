@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API back4app</title>
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="content">
+        <h1>utilizando minha própria API</h1>
+
+        <div class="createTask">    
+            <label for="text">Insira sua tarefa: </label>
+            <input type="text" id="text">
+            <button id="button">enviar</button>
+        </div>
+
+        <div id="tableContainer">
+            <table id="table" border="3">
+                <thead class="tableHeader">
+                    <tr class="tableRow">
+                        <th class="tableColumn">Task ID</th>
+                        <th class="tableColumn">Task Description</th>
+                        <th class="tableColumn">Status</th>
+                    </tr>
+                </thead>
+    
+                <tbody id="tbody">
+                </tbody>
+            </table>
+        </div>      
+    </div>
+      
+</body>
+</html>
