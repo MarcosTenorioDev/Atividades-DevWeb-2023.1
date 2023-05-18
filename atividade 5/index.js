@@ -11,16 +11,40 @@ const headers = {
 };
 
 
-const getTasks = () => {
+const getTasks = () =>{
     fetch(taskUrl, { headers: headers })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
-            console.log(data.results.length)
             createTable(data);
         });
 
 };
+
+const postTasks = () =>{
+    const params = {
+        method: 'POST',
+        headers:{
+            "X-Parse-Application-Id": "YJiULFab1a0YVgpLyWHVeCqILYVZAcJ4uhDkDYlp",
+            "X-Parse-REST-API-Key": "yrV3gCZNMUuft5rx7iHCA19Q0JALmh6i4J07hgzu",
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({
+            Description: text.value,
+            Done: false,
+        })
+    };
+
+    fetch(taskUrl, params)
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data);
+        tbody.innerHTML = '';
+        getTasks();
+    })
+}
+button.onclick = postTasks;
+
+
 const createTable = (data) => {
     for(i=0; i < data.results.length; i++){
         const listId = document.createElement("td");
@@ -46,8 +70,8 @@ const createTable = (data) => {
         
     }
         
-
 getTasks();
+
 
 
 
