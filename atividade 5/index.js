@@ -20,6 +20,20 @@ const getTasks = () =>{
 
 };
 
+const atualizeTasks = (id, data) =>{
+    let check = (data.results.done) ? false : true;
+
+    const params = {
+        method: "PUT",
+        headers,
+        body: JSON.stringify({done: check})
+    };
+
+    fetch(taskUrl+`/${id}`, params)
+
+    getTasks;
+}
+
 const postTasks = () =>{
     const params = {
         method: 'POST',
@@ -37,8 +51,6 @@ const postTasks = () =>{
     fetch(taskUrl, params)
     .then((res) => res.json())
     .then((data) => {
-        console.log(data);
-        tbody.innerHTML = '';
         getTasks();
     })
 }
@@ -46,29 +58,32 @@ button.onclick = postTasks;
 
 
 const createTable = (data) => {
+    console.log(data);
+    tbody.innerHTML = '';
     for(i=0; i < data.results.length; i++){
-        const listId = document.createElement("td");
         const listTaskDescription = document.createElement("td");
         const listStatus = document.createElement("td");
+        const check = document.createElement("input")
+        check.type = "checkbox"
 
-        const id = document.createTextNode(data.results[i].objectId);
         const description = document.createTextNode(data.results[i].Description);
-        const statusTask = document.createTextNode(data.results[i].Done);
-
+        const statusTask = document.createTextNode(data.results[i].Done + "  ");
+        
          
-        listId.appendChild(id);
         listTaskDescription.appendChild(description);
         listStatus.appendChild(statusTask);
+        listStatus.appendChild(check)
 
         row = document.createElement("tr");
-        row.appendChild(listId);
         row.appendChild(listTaskDescription);
         row.appendChild(listStatus);
 
         tbody.appendChild(row);
         }
         
-    }
+}
+
+
         
 getTasks();
 
