@@ -69,21 +69,31 @@ const createTable = (data) => {
         const listTaskDescription = document.createElement("td");
         const listStatus = document.createElement("td");
         const check = document.createElement("input");
+        const deleteButton = document.createElement("button")
+        const taskId = data.results[i].objectId;
+        listStatus.id = taskId;
+
+        deleteButton.innerHTML = `X`
+
+        deleteButton.addEventListener("click", function (event){
+            const idToDelete = event.target.parentNode.id;
+            deleteTask(idToDelete);
+
+        })
 
         check.type = "checkbox";
-        const taskId = data.results[i].objectId; // Armazena o objectId da tarefa no atributo "data-task-id" do checkbox
+         // Armazena o objectId da tarefa no atributo "data-task-id" do checkbox
         check.checked = data.results[i].Done == true
 
         check.addEventListener("change", function () {
             atualizeTasks(taskId, check.checked);
         });
-        
+            
         const description = document.createTextNode(data.results[i].Description);
-        const statusTask = document.createTextNode(data.results[i].Done + "  ");
 
         listTaskDescription.appendChild(description);
-        listStatus.appendChild(statusTask);
         listStatus.appendChild(check);
+        listStatus.appendChild(deleteButton);
 
         row = document.createElement("tr");
         row.appendChild(listTaskDescription);
@@ -91,7 +101,22 @@ const createTable = (data) => {
 
         tbody.appendChild(row);
     }
+    
 };
+
+const deleteTask = (id) =>{
+    const params = {
+        method: "DELETE",
+        headers:{
+            ...headers,
+        },
+    };
+
+    fetch(taskUrl + `/${id}`, params)
+        .then(() => {
+            getTasks();
+        })
+}
 
 
 
