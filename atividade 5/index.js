@@ -20,21 +20,28 @@ const getTasks = () =>{
 
 };
 
-const atualizeTasks = (id, data) =>{
-    let check = (data.results.done) ? false : true;
+const atualizeTasks = (id, data) => {
+
+    const check = (data) ? true : false;
 
     const params = {
         method: "PUT",
-        headers,
-        body: JSON.stringify({done: check})
+        headers:{
+            ...headers,
+            "Content-Type":"application/json"
+        },
+        body: JSON.stringify({ Done: check })
     };
 
-    fetch(taskUrl+`/${id}`, params)
+    fetch(taskUrl + `/${id}`, params)
+        .then(() => {
+            getTasks();
+        })
+};
 
-    getTasks;
-}
 
 const postTasks = () =>{
+    
     const params = {
         method: 'POST',
         headers:{
@@ -49,8 +56,7 @@ const postTasks = () =>{
     };
 
     fetch(taskUrl, params)
-    .then((res) => res.json())
-    .then((data) => {
+    .then(() => {
         getTasks();
     })
 }
@@ -58,30 +64,35 @@ button.onclick = postTasks;
 
 
 const createTable = (data) => {
-    console.log(data);
     tbody.innerHTML = '';
-    for(i=0; i < data.results.length; i++){
+    for (let i = 0; i < data.results.length; i++) {
         const listTaskDescription = document.createElement("td");
         const listStatus = document.createElement("td");
-        const check = document.createElement("input")
-        check.type = "checkbox"
+        const check = document.createElement("input");
 
+        check.type = "checkbox";
+        const taskId = data.results[i].objectId; // Armazena o objectId da tarefa no atributo "data-task-id" do checkbox
+        check.checked = data.results[i].Done == true
+
+        check.addEventListener("change", function () {
+            atualizeTasks(taskId, check.checked);
+        });
+        
         const description = document.createTextNode(data.results[i].Description);
         const statusTask = document.createTextNode(data.results[i].Done + "  ");
-        
-         
+
         listTaskDescription.appendChild(description);
         listStatus.appendChild(statusTask);
-        listStatus.appendChild(check)
+        listStatus.appendChild(check);
 
         row = document.createElement("tr");
         row.appendChild(listTaskDescription);
         row.appendChild(listStatus);
 
         tbody.appendChild(row);
-        }
-        
-}
+    }
+};
+
 
 
         
