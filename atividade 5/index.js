@@ -84,12 +84,18 @@ const createTable = (data) => {
         check.type = "checkbox";
          // Armazena o objectId da tarefa no atributo "data-task-id" do checkbox
         check.checked = data.results[i].Done == true
-
+    
         check.addEventListener("change", function () {
             atualizeTasks(taskId, check.checked);
+            if (check.checked) {
+                listTaskDescription.classList.add("done");
+            } else {
+                listTaskDescription.classList.remove("done");
+            }
         });
             
         const description = document.createTextNode(data.results[i].Description);
+
 
         listTaskDescription.appendChild(description);
         listStatus.appendChild(check);
@@ -100,6 +106,9 @@ const createTable = (data) => {
         row.appendChild(listStatus);
 
         tbody.appendChild(row);
+        if (data.results[i].Done) {
+            listTaskDescription.classList.add("done");
+        }
     }
     
 };
